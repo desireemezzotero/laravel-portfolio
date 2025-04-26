@@ -43,7 +43,7 @@
       </li>
 
       <li>
-          <a href="#" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
+          <a href="project" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
       </li>
      
     </ul>
