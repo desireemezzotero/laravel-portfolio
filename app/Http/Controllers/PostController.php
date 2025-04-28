@@ -53,17 +53,23 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Portfolio $project)
     {
-        //
+        return view('edit', compact ('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Portfolio $project)
     {
-        //
+        $data = $request->all();
+        $project->title =   $data['title'];
+        $project->description =   $data['description'];
+        $project->image =   $data['image'];
+
+        $project->update();
+        return redirect()->route('project.show', $project);
     }
 
     /**
