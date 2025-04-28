@@ -1,7 +1,7 @@
 <nav class="bg-black border-gray-200 text-white">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
-  <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+  <a href="{{route('index')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{{Vite::asset('resources/img/DM-logo.png')}}" class="h-8 rounded-full" alt="Flowbite Logo" />
   </a>
 
@@ -16,10 +16,10 @@
       <div class="z-50 hidden my-4 text-base list-none bg-black divide-y divide-gray-100 rounded-lg shadow-sm" id="user-dropdown">
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a href="/login" class="block px-4 py-2 text-sm text-white">Accedi</a>
+            <a href="{{route('login')}}" class="block px-4 py-2 text-sm text-white">Accedi</a>
           </li>
           <li>
-            <a href="/register" class="block px-4 py-2 text-sm text-white">Registrati</a>
+            <a href="{{route('register')}}" class="block px-4 py-2 text-sm text-white">Registrati</a>
           </li>
         </ul>
       </div>
@@ -35,19 +35,19 @@
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
       <li>
-        <a href="/" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Home</a>
+        <a href="{{route('index')}}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Home</a>
       </li>
 
       <li>
-        <a href="about" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">About me</a>
+        <a href="{{route('about')}}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">About me</a>
       </li>
 
       <li>
-        <a href="project" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
+        <a href="{{route('project.index')}}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
       </li>
      
       <li>
-        <a href="create" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Create</a>
+        <a href="{{route('create')}}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Create</a>
       </li>
    
     </ul>
