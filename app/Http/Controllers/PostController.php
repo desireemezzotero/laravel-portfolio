@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -29,7 +29,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data =$request->all();
+
+        $newProject = new Portfolio();
+
+        $newProject->title=$data['title'];
+        $newProject->description=$data['description'];
+        $newProject->image=$data['image'];
+
+        $newProject->save();
+
+        return redirect()->route('project.show', [$newProject]);
     }
 
     /**
