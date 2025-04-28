@@ -2,15 +2,9 @@
 
 @php
   use App\Models\Portfolio;
-  $posts = Portfolio::all();
+  $project = Portfolio::all();
 @endphp
 
 @section('content')
-  
-<ul>
-
-    @foreach ($posts as $post)
-         {{$post->id}}
-    @endforeach
- </ul>
+<h4>ciao</h4>
 @endsection
