@@ -49,7 +49,7 @@
       @auth
   @if(auth()->user()->remember_token === auth()->user()->remember_token)
     <li>
-      <a href="{{ route('create') }}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Create</a>
+      <a href="{{ route('project.create') }}" class="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Create</a>
     </li>
   @endif
 @endauth

@@ -22,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $types= Type::all();
+        return view('create', compact('types'));
     }
 
     /**
@@ -37,6 +38,7 @@ class PostController extends Controller
         $newProject->title=$data['title'];
         $newProject->description=$data['description'];
         $newProject->image=$data['image'];
+        $newProject->type_id =$data['type_id'];
 
         $newProject->save();
 
@@ -69,6 +71,7 @@ class PostController extends Controller
         $project->title =   $data['title'];
         $project->description =   $data['description'];
         $project->image =   $data['image'];
+        $project->type_id =   $data['type_id'];
 
         $project->update();
         return redirect()->route('project.show', $project);
