@@ -19,6 +19,7 @@ class PortfoliosTableSeeder extends Seeder
             $newPortfolio->title = $faker->name(); 
             $newPortfolio->description = $faker->text();
             $newPortfolio->image = $faker->imageUrl();
+            $newPortfolio->type_id = rand(1,4);
 
             $newPortfolio->save();
         }

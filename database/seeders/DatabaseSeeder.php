@@ -10,12 +10,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Crea un utente di test
-        User::factory()->create([
+/*         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-        ]);
+        ]); */
 
         // Chiama il seeder dei portfolio una volta sola
-        $this->call(PortfoliosTableSeeder::class);
+        $this->call([
+             TypesTableSeeder::class,
+             PortfoliosTableSeeder::class
+        ]);
     }
 }
