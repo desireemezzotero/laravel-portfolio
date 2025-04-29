@@ -56,7 +56,8 @@ class PostController extends Controller
      */
     public function edit(Portfolio $project)
     {
-        return view('edit', compact ('project'));
+        $types= Type::all();
+        return view('edit', compact ('project','types'));
     }
 
     /**
