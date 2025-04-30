@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('portfolios', function (Blueprint $table) {
-           $table->foreignId('type_id')->default(1)->constrained();
+        Schema::create('portfolio_technology', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('portfolio_id')->constrained();
+            $table->foreignId('technology_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('portfolios', function (Blueprint $table) {
-            
-        });
+        Schema::dropIfExists('portfolio_technology');
     }
 };

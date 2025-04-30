@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
         // Chiama il seeder dei portfolio una volta sola
         $this->call([
              TypesTableSeeder::class,
-             PortfoliosTableSeeder::class
+             PortfoliosTableSeeder::class,
+             TechnologiesTableSeeder::class,
+             PortfolioTechnologyTableSeeder::class
         ]);
     }
 }

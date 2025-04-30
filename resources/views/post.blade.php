@@ -7,7 +7,7 @@
     <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Project with id {{$project->id}}</h1>
     <img src=" {{$project->image}}" alt="">
 
-    <p class="text-white">Il tipo del tuo progetto è: {{$project->type_id}}</p>
+    <p class="text-white">Il tipo del tuo progetto è: {{$project->type->title_type}}</p>
 
     @auth
       @if(auth()->user()->remember_token === auth()->user()->remember_token)
