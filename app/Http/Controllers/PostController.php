@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Portfolio;
 use App\Models\Type;
-
+use App\Models\Technology;
 class PostController extends Controller
 {
     /**
@@ -23,24 +23,28 @@ class PostController extends Controller
     public function create()
     {
         $types= Type::all();
-        return view('create', compact('types'));
+        $technologies= Technology::all();
+        return view('create', compact('types', 'technologies'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $data =$request->all();
-
+        
         $newProject = new Portfolio();
-
+        
         $newProject->title=$data['title'];
         $newProject->description=$data['description'];
         $newProject->image=$data['image'];
         $newProject->type_id =$data['type_id'];
-
+        
         $newProject->save();
+        
+        $newProject->technologies()->attach($data['technologies']);
+
 
         return redirect()->route('project.show', [$newProject]);
     }
