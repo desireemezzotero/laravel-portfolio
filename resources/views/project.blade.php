@@ -21,9 +21,13 @@
             <th scope="col" class="px-6 py-3">
              View
             </th>
+            @auth
+            @if(auth()->user()->remember_token === auth()->user()->remember_token)
             <th scope="col" class="px-6 py-3">
              Action
             </th>
+            @endif
+            @endauth
           </tr>
         </thead>
 
