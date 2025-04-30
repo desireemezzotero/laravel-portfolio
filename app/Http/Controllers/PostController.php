@@ -14,7 +14,10 @@ class PostController extends Controller
     public function index()
     {
         $project = Portfolio::all();
-        return view('project', compact('project'));
+        $types = Type::all();
+        $technologies= Technology::all();
+
+        return view('project', compact('project', 'types', 'technologies'));
     }
 
     /**
