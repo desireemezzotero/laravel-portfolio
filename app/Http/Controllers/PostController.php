@@ -63,7 +63,8 @@ class PostController extends Controller
     public function edit(Portfolio $project)
     {
         $types= Type::all();
-        return view('edit', compact ('project','types'));
+        $technologies= Technology::all();
+        return view('edit', compact ('project','types','technologies'));
     }
 
     /**
@@ -78,6 +79,9 @@ class PostController extends Controller
         $project->type_id =   $data['type_id'];
 
         $project->update();
+
+        $project->technologies()->sync($data['technologies']);
+
         return redirect()->route('project.show', $project);
     }
 

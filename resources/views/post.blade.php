@@ -8,16 +8,18 @@
     <img src=" {{$project->image}}" alt="">
 
     <p class="text-white">Il tipo del tuo progetto è: {{$project->type->title_type}}</p>
-    @if(count($project->technologies > 0))
-    <div class="text-white">Il tipo del tuo progetto è: 
-      <ul>
-        @foreach($project->technologies as $tech)
-        <li>
-          {{$tech->title_technology}}
-        </li>
-        @endforeach
-      </ul>
-    </div>
+    @if(count($project->technologies) > 0)
+     <div class="text-white">
+        Il tipo del tuo progetto è: 
+        <ul>
+            @foreach($project->technologies as $tech)
+                <li>
+                    {{$tech->title_technology}}
+                </li>
+            @endforeach
+        </ul>
+     </div>
+   @endif
 
     @auth
       @if(auth()->user()->remember_token === auth()->user()->remember_token)
@@ -29,7 +31,7 @@
           @method('DELETE')
           <input type="submit" class="bottom-0 text-white" value="elimina">
         </form>
-      @endif
+     @endif
     @endauth
 
     <p class="text-white">
