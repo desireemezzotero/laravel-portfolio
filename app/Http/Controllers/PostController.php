@@ -43,9 +43,10 @@ class PostController extends Controller
         
         $newProject->save();
         
-        $newProject->technologies()->attach($data['technologies']);
-
-
+        if($request->has('technologies')){
+            $newProject->technologies()->attach($data['technologies']);
+        }
+       
         return redirect()->route('project.show', [$newProject]);
     }
 
@@ -80,7 +81,12 @@ class PostController extends Controller
 
         $project->update();
 
-        $project->technologies()->sync($data['technologies']);
+        if($request->has('technologies')){
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->detach();
+        }
+
 
         return redirect()->route('project.show', $project);
     }
@@ -90,6 +96,7 @@ class PostController extends Controller
      */
     public function destroy(Portfolio $project)
     {
+       $project->technologies()->detach();
        $project->delete();
        return redirect()->route('project.index');
     }
