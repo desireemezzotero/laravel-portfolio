@@ -11,3 +11,4 @@ use App\Http\Controllers\Api\PostController;
 
 
 Route::get('project', [PostController::class, 'index']);
+Route::get('project/{project}', [PostController::class, 'show']);

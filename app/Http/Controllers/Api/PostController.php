@@ -17,5 +17,17 @@ class PostController extends Controller
                 "data" => $project
             ]
             );
+        }
+
+    public function show(Portfolio $project){
+
+        $project->load('type','technologies');
+       
+        return response()->json(
+            [
+                "success"=>'true',
+                "data" => $project
+            ]
+            ); 
     }
 }
