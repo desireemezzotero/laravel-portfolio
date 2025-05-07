@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use app\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,14 +27,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth','verified'])
-->name('admin.')
-->prefix('admin')
-->group(function(){
-   Route::get('/', [DashboardController::class, 'index'])
-   ->name('index');
-});
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])
+            ->name('index');
+    });
 
 Route::resource('/project', PostController::class);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
